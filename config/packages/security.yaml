@@ -12,12 +12,17 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
+        token:
+            pattern: ^/api/v1/token
+            security: false
         main:
             lazy: true
+            security: false
             provider: app_user_provider
             guard:
                 authenticators:
-                    - App\Security\LoginFormAuthenticator
+                    - App\Security\JwtTokenAuthenticator
+#                    - App\Security\LoginFormAuthenticator
             logout:
                 path: app_logout
                 target: app_login

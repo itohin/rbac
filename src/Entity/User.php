@@ -47,6 +47,11 @@ class User implements \JsonSerializable, UserInterface
     private $roles;
 
     /**
+     * @Mapping\Column(type="string", length=32, nullable=true, unique=true)
+     */
+    private $token;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -132,5 +137,17 @@ class User implements \JsonSerializable, UserInterface
             'login' => $this->login,
             'roles' => $this->roles
         ];
+    }
+
+    public function getToken(): ?string
+    {
+        return $this->token;
+    }
+
+    public function setToken(?string $token): self
+    {
+        $this->token = $token;
+
+        return $this;
     }
 }

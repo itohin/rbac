@@ -78,6 +78,21 @@
     "doctrine/sql-formatter": {
         "version": "1.1.0"
     },
+    "emag-tech-labs/rabbitmq-bundle": {
+        "version": "2.2.3"
+    },
+    "friendsofsymfony/rest-bundle": {
+        "version": "2.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.2",
+            "ref": "cad41ef93d6150067ae2bb3c7fd729492dff6f0a"
+        },
+        "files": [
+            "config/packages/fos_rest.yaml"
+        ]
+    },
     "jms/metadata": {
         "version": "2.3.0"
     },
@@ -107,6 +122,27 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.0.4"
     },
+    "lcobucci/jwt": {
+        "version": "3.3.3"
+    },
+    "lexik/jwt-authentication-bundle": {
+        "version": "2.5",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "2.5",
+            "ref": "5b2157bcd5778166a5696e42f552ad36529a07a6"
+        },
+        "files": [
+            "config/packages/lexik_jwt_authentication.yaml"
+        ]
+    },
+    "monolog/monolog": {
+        "version": "2.1.1"
+    },
+    "namshi/jose": {
+        "version": "7.2.3"
+    },
     "nikic/php-parser": {
         "version": "v4.9.1"
     },
@@ -118,6 +154,12 @@
     },
     "php": {
         "version": "7.4"
+    },
+    "php-amqplib/php-amqplib": {
+        "version": "v2.12.1"
+    },
+    "phpseclib/phpseclib": {
+        "version": "2.0.29"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -240,6 +282,24 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/monolog-bridge": {
+        "version": "v5.1.5"
+    },
+    "symfony/monolog-bundle": {
+        "version": "3.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.3",
+            "ref": "d7249f7d560f6736115eee1851d02a65826f0a56"
+        },
+        "files": [
+            "config/packages/dev/monolog.yaml",
+            "config/packages/prod/deprecations.yaml",
+            "config/packages/prod/monolog.yaml",
+            "config/packages/test/monolog.yaml"
+        ]
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.17.0"
     },
@@ -355,5 +415,11 @@
     },
     "webimpress/safe-writer": {
         "version": "2.0.1"
+    },
+    "willdurand/jsonp-callback-validator": {
+        "version": "v1.1.0"
+    },
+    "willdurand/negotiation": {
+        "version": "v2.3.1"
     }
 }

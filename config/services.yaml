@@ -30,3 +30,7 @@ services:
         class: App\Symfony\MigrationEventSubscriber
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+
+    App\Service\AsyncService:
+        calls:
+            - ['registerProducer', [!php/const App\Service\AsyncService::ADD_FOLLOWER, '@old_sound_rabbit_mq.add_follower_producer']]

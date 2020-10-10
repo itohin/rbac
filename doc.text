@@ -1,1 +1,3 @@
 composer req symfony/security-bundle
+
+jwt - 1:02

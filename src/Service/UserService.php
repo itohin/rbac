@@ -69,4 +69,39 @@ class UserService
 
         return $userRepository->getUsers($page, $perPage);
     }
+
+    public function findUserById(int $userId): ?User
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->entityManager->getRepository(User::class);
+        /** @var User $user */
+        $user = $userRepository->find($userId);
+        return $user;
+    }
+
+    public function findUserByLogin(string $login): ?User
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->entityManager->getRepository(User::class);
+        /** @var User|null $user */
+        $user = $userRepository->findOneBy(['login' => $login]);
+
+        return $user;
+    }
+
+    public function updateUserToken(string $login): ?string
+    {
+        /** @var UserRepository $userRepository */
+        $userRepository = $this->entityManager->getRepository(User::class);
+        /** @var User $user */
+        $user = $userRepository->findOneBy(['login' => $login]);
+        if ($user === null) {
+            return false;
+        }
+        $token = base64_encode(random_bytes(20));
+        $user->setToken($token);
+        $this->entityManager->flush();
+
+        return $token;
+    }
 }

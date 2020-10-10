@@ -25,7 +25,7 @@ class UserDTO
     {
         $this->login = $data['login'] ?? '';
         $this->password = $data['password'] ?? '';
-        $this->roles = json_decode($data['roles'], true) ?? [];
+        $this->roles = $data['roles'] ?? [];
     }
 
     public function fromEntity(User $user): self

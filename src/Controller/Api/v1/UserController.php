@@ -74,7 +74,7 @@ class UserController
         $userDto = new UserDTO([
             'login' => $request->request->get('login'),
             'password' => $request->request->get('password'),
-            'roles' => $request->request->get('roles')
+            'roles' => json_decode($request->request->get('roles'), true)
         ]);
         $result = $this->userService->updateUser($userId, $userDto);
 
