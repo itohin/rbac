@@ -6,6 +6,7 @@ use App\DTO\UserDTO;
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserService
@@ -14,11 +15,14 @@ class UserService
     private $entityManager;
     /** @var UserPasswordEncoderInterface */
     private $userPasswordEncoder;
+    /** LoggerInterface $logger */
+    private $logger;
 
-    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder)
+    public function __construct(EntityManagerInterface $entityManager, UserPasswordEncoderInterface $userPasswordEncoder, LoggerInterface $logger)
     {
         $this->entityManager = $entityManager;
         $this->userPasswordEncoder = $userPasswordEncoder;
+        $this->logger = $logger;
     }
 
     public function saveUser(User $user, UserDTO $userDTO): ?int
@@ -64,6 +68,7 @@ class UserService
      */
     public function getUsers(int $page, int $perPage): array
     {
+        $this->logger->info("Get users list");
         /** @var UserRepository $userRepository */
         $userRepository = $this->entityManager->getRepository(User::class);
 
