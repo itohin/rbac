@@ -1,3 +1,4 @@
+#symfony console rabbitmq:consumer add_follower -m 100
 old_sound_rabbit_mq:
   connections:
     default:
